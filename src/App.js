@@ -1,21 +1,23 @@
-import Home from './home-page';
-import Map from './map';
-import Opportunities from './opportunities';
+import Home from './containers/home-page';
+import Map from './components/map';
+import Opportunities from './containers/opportunities';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router';
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
+import Navbar from './components/navbar';
 
 function App() {
   return (
     <ChakraProvider>
+      <Navbar />
       <BrowserRouter>
-        <div className="container">
+        <Box>
           <Routes>
             <Route index element={<Home />} />
-            <Route path="/map" element={<Map />} />
-            <Route path="/opportunities" element={<Opportunities />} />
+            <Route path='/map' element={<Map />} />
+            <Route path='/opportunities' element={<Opportunities />} />
           </Routes>
-        </div>
+        </Box>
       </BrowserRouter>
     </ChakraProvider>
   );
