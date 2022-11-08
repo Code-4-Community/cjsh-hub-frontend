@@ -7,6 +7,8 @@ const MapDiv = styled.div`
   height: 100%;
 `;
 
+let map: window.google.maps.Map;
+
 const Map = ({
   view,
   zoom,
@@ -42,6 +44,7 @@ const Map = ({
 
 
           // overlay stuff later
+
         })
         .catch((err) => message.error(err.message));
     }
