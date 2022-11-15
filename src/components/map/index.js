@@ -1,13 +1,12 @@
 import React, { createRef, useEffect, useState, useCallback } from 'react';
 import { NEU_BOUNDS, LOADER } from './constants.js';
 import styled from 'styled-components';
-import { message } from 'antd';
+import PropTypes from 'prop-types';
 
 const MapDiv = styled.div`
-  height: 100%;
+  width: 100%;
+  height: 90vh; // in theory should be in a container so i can set it to 100%
 `;
-
-let map: window.google.maps.Map;
 
 const Map = ({
   view,
@@ -31,13 +30,13 @@ const Map = ({
     if (mapElement) {
       LOADER.load()
         .then((google) => {
-          map = new google.maps.Map(mapElement, {
+          new google.maps.Map(mapElement, {
             center: { lat: 42.33992691759904, lng: -71.08986968678391 }, // gonna hardcode for now, lat,lng
-            zoom: 1, // hardcode for now as well
+            zoom: 16.7, // hardcode for now as well
             fullscreenControl: false,
             mapTypeControl: false,
             restriction: {
-              latLngBounds: NEU_BOUNDS,
+              bounds: NEU_BOUNDS,
               strictBounds: false,
             },
           });
@@ -46,7 +45,7 @@ const Map = ({
           // overlay stuff later
 
         })
-        .catch((err) => message.error(err.message));
+        .catch((err) => console.log(err.message));
     }
   }, [mapElement, view, zoom, lat, lng, initMapCallback]);
 
@@ -55,6 +54,14 @@ const Map = ({
       <MapDiv id="map" ref={mapRef} />
     </>
   );
+};
+
+Map.propTypes = { 
+  view : PropTypes.any,
+  zoom : PropTypes.number,
+  lat : PropTypes.number,
+  lng : PropTypes.number,
+  initMap : PropTypes.any 
 };
 
 export default Map;

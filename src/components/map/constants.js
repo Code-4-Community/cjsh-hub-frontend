@@ -9,8 +9,8 @@ export const LOADER = new Loader({
 
 // modify bounds
 export const NEU_BOUNDS = {
-  north: 42.4,
+  north: 42.32,
   south: 42.3,
-  west: -71.09,
+  west: -71.082,
   east: -71.08,
 };
