@@ -7,6 +7,10 @@ export const LOADER = new Loader({
   mapIds: [MAP_ID],
 });
 
+export const CENTER = { lat: 42.33992691759904, lng: -71.08986968678391 };
+
+export const ZOOM = 16.7;
+
 // modify bounds
 export const NEU_BOUNDS = {
   north: 42.32,
