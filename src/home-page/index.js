@@ -20,7 +20,18 @@ const HomePage = () => {
         <>
 
             <div className="mt-5 mb-5">
-                <div className="float-start fw-bold fs-3">Northeastern University</div>
+                <div className="float-start fw-bold fs-3">
+
+                    <div className="row">
+                        <img src={require("../images/cjsh-logo.jpg")} className="logo-size col-3"/>
+
+                        <div className="col-9">
+                            <div className="fs-4">Northeastern University</div>
+                            <div className="fs-4">Climate Justice and</div>
+                            <div className="fs-4">Sustainability Hub</div>
+                        </div>
+                    </div>
+                </div>
                 <div className="float-end">
                     <ul className="nav nav-pills mb-2 text-white">
                         <li className="nav-item">
@@ -30,10 +41,10 @@ const HomePage = () => {
                             <a className="nav-link" href="http://localhost:3000/map">Sustainability
                                 Map</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link"
-                               href="http://localhost:3000/opportunities">Opportunities</a>
-                        </li>
+                        {/*<li className="nav-item">*/}
+                        {/*    <a className="nav-link"*/}
+                        {/*       href="http://localhost:3000/opportunities">Opportunities</a>*/}
+                        {/*</li>*/}
 
 
                         {/*Sign Up overlays?*/}
@@ -52,7 +63,8 @@ const HomePage = () => {
                                             <label htmlFor="email"><b>Email</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="text" placeholder="Enter Email"
+                                            <input className="m-1" type="text"
+                                                   placeholder="Enter Email"
                                                    name="email"
                                                    required/>
                                         </div>
@@ -61,7 +73,8 @@ const HomePage = () => {
                                             <label htmlFor="psw"><b>Password</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="password" placeholder="Enter Password"
+                                            <input className="m-1" type="password"
+                                                   placeholder="Enter Password"
                                                    name="psw" required/>
                                         </div>
                                     </ModalBody>
@@ -78,12 +91,9 @@ const HomePage = () => {
                         </li>
 
 
-
-
-
-
                         <li className="nav-item">
-                            <Button className="nav-link text-primary fw-normal" onClick={onOpen}>Sign Up</Button>
+                            <Button className="nav-link text-primary fw-normal" onClick={onOpen}>Sign
+                                Up</Button>
 
                             <Modal isOpen={isOpen} onClose={onClose}>
                                 <ModalOverlay/>
@@ -95,7 +105,8 @@ const HomePage = () => {
                                             <label htmlFor="firstname"><b>First Name</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="text" placeholder="Enter First Name"
+                                            <input className="m-1" type="text"
+                                                   placeholder="Enter First Name"
                                                    name="firstname"
                                                    required/>
                                         </div>
@@ -105,7 +116,8 @@ const HomePage = () => {
                                             <label htmlFor="lastname"><b>Last Name</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="text" placeholder="Enter Last Name"
+                                            <input className="m-1" type="text"
+                                                   placeholder="Enter Last Name"
                                                    name="lastname"
                                                    required/>
                                         </div>
@@ -115,7 +127,8 @@ const HomePage = () => {
                                             <label htmlFor="email"><b>Email</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="text" placeholder="Enter Email"
+                                            <input className="m-1" type="text"
+                                                   placeholder="Enter Email"
                                                    name="email"
                                                    required/>
                                         </div>
@@ -125,15 +138,18 @@ const HomePage = () => {
                                             <label htmlFor="psw"><b>Password</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="password" placeholder="Enter Password"
+                                            <input className="m-1" type="password"
+                                                   placeholder="Enter Password"
                                                    name="psw" required/>
                                         </div>
 
                                         <div className="m-2">
-                                            <label htmlFor="reenterpsw"><b>Re-enter Password</b></label>
+                                            <label htmlFor="reenterpsw"><b>Re-enter
+                                                Password</b></label>
                                         </div>
                                         <div className="m-2 border border-success rounded-3">
-                                            <input className="m-1" type="password" placeholder="Confirm Password"
+                                            <input className="m-1" type="password"
+                                                   placeholder="Confirm Password"
                                                    name="reenterpsw" required/>
                                         </div>
 
@@ -192,7 +208,8 @@ const HomePage = () => {
 
 
             <div className="row m-5 background-teal">
-                <a href="http://localhost:3000/map" className="col-8 fs-2 fw-bold text-white d-flex align-items-center justify-content-center">
+                <a href="http://localhost:3000/map"
+                   className="col-8 fs-2 fw-bold text-white d-flex align-items-center justify-content-center">
                     <h1>SUSTAINABILITY MAP</h1>
                 </a>
                 <div className="col-4">
@@ -208,7 +225,8 @@ const HomePage = () => {
                     <img className="image-height-300 float-start"
                          src={require("../images/planting.jpg")}/>
                 </div>
-                <a href="http://localhost:3000/opportunities" className="col-8 fs-2 fw-bold text-white d-flex align-items-center justify-content-center">
+                <a href="http://localhost:3000/opportunities"
+                   className="col-8 fs-2 fw-bold text-white d-flex align-items-center justify-content-center">
                     <h1>OPPORTUNITIES FOR STUDENTS</h1>
                 </a>
             </div>

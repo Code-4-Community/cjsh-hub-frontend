@@ -23,6 +23,10 @@
     height: 300px;
 }
 
+.logo-size {
+    width: 100px;
+    height: 100px;
+}
 
 {box-sizing: border-box;}
 /* Button used to open the contact form - fixed at the bottom of the page */

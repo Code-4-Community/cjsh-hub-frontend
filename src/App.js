@@ -42,9 +42,9 @@ function App() {
                                element={<Home/>}/>
                         <Route path="/map"
                                element={<Map/>}/>
-                        <Route path="/opportunities"
-                               element={<Opportunities/>}/>
-                    </Routes>
+                        {/*<Route path="/opportunities"*/}
+                        {/*       element={<Opportunities/>}/>*/}
+                    </Routes>cd cd
                 </div>
             </BrowserRouter>
         </ChakraProvider>
