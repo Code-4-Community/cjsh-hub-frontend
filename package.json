@@ -46,9 +46,12 @@
     ]
   },
   "devDependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "antd": "^4.24.1",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.10",
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "styled-components": "^5.3.6"
   }
 }

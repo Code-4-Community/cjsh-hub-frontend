@@ -5,7 +5,7 @@ const PostsItem = ({
   post = {
     topic: 'Student',
     title:
-      "'WE LOVE HUSKIES.' NORTHEASTERN STUDENTS TACKLE NEIGHBORHOOD SERVICE PROJECTS IN ROXBURY",
+      '"WE LOVE HUSKIES." NORTHEASTERN STUDENTS TACKLE NEIGHBORHOOD SERVICE PROJECTS IN ROXBURY',
     text: 'It’s been really nice to be here and to serve that community - said Barker-Waters, a political science and international affairs major at the College of Social Sciences and Humanities.',
     time: '2h',
     image: 'tree.jpg',
