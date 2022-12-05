@@ -6,15 +6,21 @@ import { Routes, Route } from 'react-router';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import Navbar from './components/navbar';
 
+import { extendTheme } from '@chakra-ui/react';
+import { ROUTES } from './constants';
+import theme from './theme';
+
+const extendedTheme = extendTheme(theme);
+
 function App() {
   return (
-    <ChakraProvider>
-      <Navbar />
+    <ChakraProvider theme={extendedTheme}>
       <BrowserRouter>
+        <Navbar />
         <Box>
           <Routes>
             <Route index element={<Home />} />
-            <Route path='/map' element={<Map />} />
+            <Route path={ROUTES.MAP} element={<Map />} />
             <Route path='/opportunities' element={<Opportunities />} />
           </Routes>
         </Box>

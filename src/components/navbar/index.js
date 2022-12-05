@@ -3,13 +3,18 @@ import {
   Button,
   Flex,
   Heading,
-  Stack,
+  Stack, Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import LoginModal from './LoginModal';
 import SignupModal from './SignupModal';
+import colors from '../../theme/colors';
+import { useNavigate } from 'react-router';
+import { ROUTES } from '../../constants';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const {
     isOpen: isLoginOpen,
     onOpen: onOpenLogin,
@@ -25,32 +30,51 @@ const Navbar = () => {
   const isLoggedIn = false;
 
   return (
-    <Box backgroundColor='#000' color='#FFF'>
-      <Flex alignItems='center' justifyContent='space-between' padding='1rem'>
-        <Heading>
-          {/*todo style on hover*/}
-          <a href='/'>Northeastern University</a>
+    <Box backgroundColor={colors.dark} color={colors.light}>
+      <Flex
+        align='center'
+        height='4.25rem'
+        justify='space-between'
+        padding='0 1rem'
+      >
+        <Heading
+          fontSize='1rem'
+          width='20rem'
+          _hover={{
+            cursor: 'pointer',
+            textDecoration: 'underline'
+          }}
+          onClick={() => navigate(ROUTES.HOME)}
+        >
+          Northeastern University Climate Justice and Sustainability Hub
+          Interactive Campus
         </Heading>
-        <Stack direction='row'>
-          <Button as='a' variant='ghost' href='/opportunities'>
+        <Flex align='center' height='100%' gap='1rem'>
+          <Button
+            variant='ghost'
+            href={ROUTES.OPPORTUNITIES}
+            _hover={{
+              backgroundColor: 'transparent',
+              color: colors.green[500]
+            }}
+          >
             Opportunities
           </Button>
           {!isLoggedIn && (
-            <Button variant='solid' colorScheme='green' onClick={onOpenLogin}>
-              Log In
-            </Button>
+            <>
+              <Button
+                variant='outline'
+                colorScheme='green'
+                onClick={onOpenLogin}
+              >
+                Log In
+              </Button>
+              <Button colorScheme='green' onClick={onOpenSignup}>
+                Sign Up
+              </Button>
+            </>
           )}
-          {!isLoggedIn && (
-            <Button
-              variant='outline'
-              colorScheme='green'
-              backgroundColor='#FFFF'
-              onClick={onOpenSignup}
-            >
-              Sign Up
-            </Button>
-          )}
-        </Stack>
+        </Flex>
       </Flex>
       <LoginModal isOpen={isLoginOpen} onClose={onCloseLogin} />
       <SignupModal isOpen={isSignupOpen} onClose={onCloseSignup} />

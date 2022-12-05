@@ -1,103 +1,103 @@
 import React from 'react';
-import './index.css';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import NortheasternMap from '../../assets/images/northeastern-map.png';
+import PlantingImage from '../../assets/images/planting.jpg';
+import {
+  Box,
+  Heading,
+  Text,
+  Image,
+  Flex,
+  Grid,
+  Link,
+  GridItem, List, ListItem, ListIcon,
+} from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants';
+import colors from '../../theme/colors';
 
-//Home Page
+// Home Page
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
-    <>
-      <div
-        id='carouselExampleIndicators'
-        className='carousel slide'
-        data-ride='carousel'
+    <Box p='1.875rem'>
+      <Grid
+        gap='1rem'
+        templateRows={{
+          base: 'repeat(3)',
+          xl: 'repeat(2)'
+        }}
+        templateColumns='repeat(5, 1fr)'
       >
-        <ol className='carousel-indicators'>
-          <li
-            data-target='#carouselExampleIndicators'
-            data-slide-to='0'
-            className='active'
-          ></li>
-          <li data-target='#carouselExampleIndicators' data-slide-to='1'></li>
-          <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
-        </ol>
-        <div className='carousel-inner'>
-          <div className='carousel-item active'>
-            <img
-              className='d-block w-100 image-height-400'
-              src={require('../../assets/images/tree.jpg')}
-              alt='First slide'
+        <GridItem colSpan={{ base: 5, xl: 3}}>
+          <Box
+            backgroundColor='#000'
+            position='relative'
+            width='100%'
+            _hover={{
+              cursor: 'pointer',
+            }}
+            onClick={() => navigate(ROUTES.MAP)}
+          >
+            <Image
+              width='100%'
+              transition='opacity 0.2s'
+              _hover={{
+                opacity: '80%'
+              }}
+              src={NortheasternMap}
             />
-          </div>
-          <div className='carousel-item'>
-            <img
-              className='d-block w-100 image-height-400'
-              src={require('../../assets/images/planting.jpg')}
-              alt='Second slide'
-            />
-          </div>
-          <div className='carousel-item'>
-            <img
-              className='d-block w-100 image-height-400'
-              src={require('../../assets/images/centennial.jpg')}
-              alt='Third slide'
-            />
-          </div>
-        </div>
-        <a
-          className='carousel-control-prev'
-          href='#carouselExampleIndicators'
-          role='button'
-          data-slide='prev'
-        >
-          <span
-            className='carousel-control-prev-icon'
-            aria-hidden='true'
-          ></span>
-          <span className='sr-only'>Previous</span>
-        </a>
-        <a
-          className='carousel-control-next'
-          href='#carouselExampleIndicators'
-          role='button'
-          data-slide='next'
-        >
-          <span
-            className='carousel-control-next-icon'
-            aria-hidden='true'
-          ></span>
-          <span className='sr-only'>Next</span>
-        </a>
-      </div>
-
-      <div className='row m-5 background-teal'>
-        <a
-          href='http://localhost:3000/map'
-          className='col-8 fs-2 fw-bold text-white d-flex align-items-center justify-content-center'
-        >
-          <h1>SUSTAINABILITY MAP</h1>
-        </a>
-        <div className='col-4'>
-          <img
-            className='image-height-300 float-end'
-            src={require('../../assets/images/savetree.jpg')}
-          />
-        </div>
-      </div>
-
-      <div className='row m-5 background-teal'>
-        <div className='col-4'>
-          <img
-            className='image-height-300 float-start'
-            src={require('../../assets/images/planting.jpg')}
-          />
-        </div>
-        <a
-          href='/opportunities'
-          className='col-8 fs-2 fw-bold text-white d-flex align-items-center justify-content-center'
-        >
-          <h1>OPPORTUNITIES FOR STUDENTS</h1>
-        </a>
-      </div>
-    </>
+            <Heading
+              backgroundColor='#FFFFFFBF'
+              bottom='1rem'
+              fontStyle='italic'
+              left='1rem'
+              padding='0.5rem'
+              position='absolute'
+            >
+              Explore sustainability on campus!
+            </Heading>
+          </Box>
+        </GridItem>
+        <GridItem colSpan={{ base: 4, xl: 2}}>
+          <Box
+            backgroundColor={colors.orange[500]}
+            color={colors.light}
+            height='100%'
+            padding='1rem'
+          >
+            <Text fontSize={{ base: '2rem', xl: '1.5rem' }}>
+              Opportunities for Students
+            </Text>
+            <List>
+              <ListIcon as={ChevronRightIcon} />
+              <Link variant='onDark'>Participate in an eco-challenge.</Link>
+            </List>
+            <List>
+              <ListIcon as={ChevronRightIcon} />
+              <Link variant='onDark'>Join a conservation club.</Link>
+            </List>
+          </Box>
+        </GridItem>
+        <GridItem colSpan={1}>
+          <Flex
+            align='center'
+            backgroundColor={colors.blue[500]}
+            height='100%'
+            justify='center'
+            padding='0.5rem'
+          >
+            <Image maxHeight='100%' maxWidth='100%' src={PlantingImage} />
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={{ base: 5, xl: 4 }}>
+          <Box backgroundColor={colors.light} height='100%' padding='1rem'>
+            <Heading size='lg'>December 2023 Challenge</Heading>
+          </Box>
+        </GridItem>
+      </Grid>
+    </Box>
   );
 };
 
