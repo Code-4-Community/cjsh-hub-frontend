@@ -32,7 +32,7 @@ const Map = ({
         .then((google) => {
           new google.maps.Map(mapElement, {
             center: CENTER,
-            zoom : ZOOM, 
+            zoom : ZOOM,
             fullscreenControl: false,
             mapTypeControl: false,
             restriction: {
@@ -49,11 +49,11 @@ const Map = ({
   }, [mapElement, view, zoom, lat, lng, initMapCallback]);
 
   return (
-    <MapDiv id="map" ref={mapRef} />
+    <MapDiv id="map">asdf</MapDiv>
   );
 };
 
-Map.propTypes = { 
+Map.propTypes = {
   view : PropTypes.object,
   zoom : PropTypes.number,
   lat : PropTypes.number,
