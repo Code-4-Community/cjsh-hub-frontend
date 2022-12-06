@@ -20,7 +20,10 @@ function App() {
         <Box>
           <Routes>
             <Route index element={<Home />} />
-            <Route path={ROUTES.MAP} element={<Map />} />
+            <Route
+              path={ROUTES.MAP}
+              element={<Map height='calc(100vh - 4.25rem)' />}
+            />
             <Route path='/opportunities' element={<Opportunities />} />
           </Routes>
         </Box>

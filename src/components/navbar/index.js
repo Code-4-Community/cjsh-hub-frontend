@@ -3,7 +3,8 @@ import {
   Button,
   Flex,
   Heading,
-  Stack, Text,
+  Stack,
+  Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import LoginModal from './LoginModal';
@@ -42,7 +43,7 @@ const Navbar = () => {
           width='20rem'
           _hover={{
             cursor: 'pointer',
-            textDecoration: 'underline'
+            textDecoration: 'underline',
           }}
           onClick={() => navigate(ROUTES.HOME)}
         >
@@ -55,7 +56,7 @@ const Navbar = () => {
             href={ROUTES.OPPORTUNITIES}
             _hover={{
               backgroundColor: 'transparent',
-              color: colors.green[500]
+              color: colors.green[500],
             }}
           >
             Opportunities

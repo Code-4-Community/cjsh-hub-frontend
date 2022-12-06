@@ -1,21 +1,13 @@
 import React, { createRef, useEffect, useState, useCallback } from 'react';
-import { NEU_BOUNDS, LOADER, CENTER, ZOOM} from './constants.js';
+import { NEU_BOUNDS, LOADER, CENTER, ZOOM, SITES } from './constants.js';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const MapDiv = styled.div`
   width: 100%;
-  height: 100%; // in theory should be in a container so i can set it to 100%
 `;
 
-const Map = ({
-  view,
-  zoom,
-  lat,
-  lng,
-  initMap
-}) => {
-
+const Map = ({ view, zoom, lat, lng, height, initMap }) => {
   const initMapCallback = useCallback(initMap, []);
 
   const mapRef = createRef();
@@ -30,9 +22,9 @@ const Map = ({
     if (mapElement) {
       LOADER.load()
         .then((google) => {
-          new google.maps.Map(mapElement, {
+          let map = new google.maps.Map(mapElement, {
             center: CENTER,
-            zoom : ZOOM,
+            zoom: ZOOM,
             fullscreenControl: false,
             mapTypeControl: false,
             restriction: {
@@ -41,24 +33,23 @@ const Map = ({
             },
           });
 
+          map.data.addGeoJson(SITES);
           // TODO: overlay stuff later
-
         })
         .catch((err) => console.log(err.message));
     }
-  }, [mapElement, view, zoom, lat, lng, initMapCallback]);
+  }, [mapElement, view, zoom, lat, lng, height, initMapCallback]);
 
-  return (
-    <MapDiv id="map">asdf</MapDiv>
-  );
+  return <MapDiv id='map' style={{ height }} ref={mapRef} />;
 };
 
 Map.propTypes = {
-  view : PropTypes.object,
-  zoom : PropTypes.number,
-  lat : PropTypes.number,
-  lng : PropTypes.number,
-  initMap : PropTypes.func
+  view: PropTypes.object,
+  zoom: PropTypes.number,
+  lat: PropTypes.number,
+  lng: PropTypes.number,
+  initMap: PropTypes.func,
+  //height : View.propTypes.style
 };
 
 export default Map;

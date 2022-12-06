@@ -10,7 +10,10 @@ import {
   Flex,
   Grid,
   Link,
-  GridItem, List, ListItem, ListIcon,
+  GridItem,
+  List,
+  ListItem,
+  ListIcon,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../constants';
@@ -26,11 +29,11 @@ const HomePage = () => {
         gap='1rem'
         templateRows={{
           base: 'repeat(3)',
-          xl: 'repeat(2)'
+          xl: 'repeat(2)',
         }}
         templateColumns='repeat(5, 1fr)'
       >
-        <GridItem colSpan={{ base: 5, xl: 3}}>
+        <GridItem colSpan={{ base: 5, xl: 3 }}>
           <Box
             backgroundColor='#000'
             position='relative'
@@ -44,7 +47,7 @@ const HomePage = () => {
               width='100%'
               transition='opacity 0.2s'
               _hover={{
-                opacity: '80%'
+                opacity: '80%',
               }}
               src={NortheasternMap}
             />
@@ -60,7 +63,7 @@ const HomePage = () => {
             </Heading>
           </Box>
         </GridItem>
-        <GridItem colSpan={{ base: 4, xl: 2}}>
+        <GridItem colSpan={{ base: 4, xl: 2 }}>
           <Box
             backgroundColor={colors.orange[500]}
             color={colors.light}
